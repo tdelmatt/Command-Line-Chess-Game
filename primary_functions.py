@@ -93,18 +93,13 @@ def getmove(gamestructure1, chessarray, exitflag1):
 	#else 
 		#error!!!!!
 
-
-
-
-
-
+		
 #isvalid
 #
 #this function takes a move object and tests that move to see if it is valid
 #if the move is invalid, the move.valid property is changed to 0
 #if the move is a valid castle, pawn promotion, or enpassant, the respective flag is set
 #so that the movepiece function can make the correct special move
-
 def isvalid(move1, chessarray, gamestructure):
 	#set player
 	if gamestructure.current is 1:
@@ -158,7 +153,6 @@ def isvalid(move1, chessarray, gamestructure):
 
 	#move1.valid = 1 #REMOVE THIS LATER WILL MAKE ALL MOVES VALID UNLESS STOPPED IN PRELIMINARY CHECK BLOCK
 	return
-
 
 
 #ismoveintocheck
@@ -256,6 +250,7 @@ def ismoveintocheck(move, chessarray, gamestructure):
 			return 1
 	enablePrint()
 	return 0
+
 
 #isplacecoveredfortake
 #
@@ -372,7 +367,8 @@ def isplacecoveredfortake(chessarray, gamestructure, attackerplayer, posin, getp
 		return 0, positions 
 	else:
 		print "this shouldnt happen, game logic error"
-				
+		
+		
 #ismoveintocheck
 #
 #this function checks to see if the attackerplayer covers the positionin.  
@@ -479,6 +475,7 @@ def isplacecovered(chessarray, gamestructure, attackerplayer, posin, getparrayfl
 	else:
 		print "this shouldnt happen, game logic error"
 
+		
 #this function checks a move to see if it is blockable
 def ismoveblockable(move, chessarray, gamestructure, blockme, blocker):
 	#for piece type
@@ -714,7 +711,6 @@ def ismoveblockable(move, chessarray, gamestructure, blockme, blocker):
 		#return 0
 		
 
-
 #checks to see if a player can move to a certain position
 #this is different than isvalid, because it checks if the move is into check
 def canplayermovehere(chessarray, gamestructure, attackerplayer, positionin):
@@ -724,6 +720,7 @@ def canplayermovehere(chessarray, gamestructure, attackerplayer, positionin):
 			if ismoveintocheck(createmove(getpiecefrompos(chessarray, aposition), aposition, positionin), chessarray, gamestructure) is 0:
 				return 1
 	return 0
+
 
 #this function checks for pawn promotion
 def pawnpromotioncheck(move, chessarray, gamestructure):
@@ -774,12 +771,12 @@ def pawnpromotioncheck(move, chessarray, gamestructure):
 				print "incorrect usage: please enter one character r for rook, q for queen, b for bishop, or k for knight"
 
 
+				
 #ischeckmate
 #
 #this function is called after the current player has made a move to see if the other player is in check, checkmate, or stalemate.
 #first the function checks to see if the other player is in check.  Then the function checks to see if the other player can move the king to any of 
 #the surrounding positions. 
-
 def ischeckmate(chessarray, gamestructure):
 	#print "in ischeckmate"
 	
@@ -918,6 +915,7 @@ def ischeckmate(chessarray, gamestructure):
 			return 1
 	return 0
 
+
 #makegamestructure
 #
 #this function takes command line input to establish whether each player will be human or computer
@@ -987,6 +985,7 @@ def makegamestructure():
 		gameinitiated = 1	
 		return makeGamestructure(status, p1type, p2type)
 
+	
 #change game structure to next turn
 def nextturn(gamestructure):
 	#reset player flags
@@ -1013,6 +1012,7 @@ def nextturn(gamestructure):
 		for i in range(10):
 			print "ERROR with next turn this should not happen game logic error"
 	return
+
 
 #initializes the chess array data structure
 def initchessarray():
