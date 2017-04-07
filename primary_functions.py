@@ -11,6 +11,7 @@ import sys, os
 from gamestructure import *
 from  builder_functions import *
 
+
 #getmove
 #this function gets a move from the player or computer
 def getmove(gamestructure1, chessarray, exitflag1):
